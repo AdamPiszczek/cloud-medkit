@@ -2,15 +2,46 @@
 {% block content %}
 {% for note in notes %}
 {% if note.author == user %}
-<article class="media content-section">
-    <div class="media-body">
-        <div class="article-metadata">
-            <small class="text-muted">{{ note.date_posted|date:"F d, Y" }}</small>
+
+<h1>TEST </h1>
+<div class="card" style="width: 100%; margin-bottom: 70px; margin-top: 70px; background-color: rgba(255,255,255, 0.5); ">
+    <div class="row" >
+    <div class="col-lg-7" style="text-align: end; margin-top: 30px;" ><h1>Portal Pacjenta</h1></div>
+        <div class="col-lg-5">
+
         </div>
-        <h2><a class="article-title" href="{% url 'note-detail' note.id %}">{{ note.title }}</a></h2>
-        <p class="article-content">{{ note.content }}</p>
-    </div>
-</article>
+</div>
+<div class="card-body" style="width: 100%; margin-top: -40px;">
+    <div class="container my-5" style="width: 100%">
+        <nav style="width: 100%">
+            <div class="nav nav-tabs" id="nav-tab" role="tablist" style="width: 100%">
+                <button class="nav-link active" id="nav-recepta-tab" data-bs-toggle="tab"
+                data-bs-target="#nav-recepta" type="button" role="tab" aria-controls="nav-recepta-tab" aria-selected='true'> Recepty </button>
+                <button class="nav-link " id="nav-leki-tab" data-bs-toggle="tab"
+                data-bs-target="#nav-leki" type="button" role="tab" aria-controls="nav-leki" aria-selected='false'> Lekarstwa </button>
+                <button class="nav-link " id="nav-badania-tab" data-bs-toggle="tab"
+                data-bs-target="#nav-badania" type="button" role="tab" aria-controls="nav-badania" aria-selected='false'> Następne badania </button>
+            </div>
+        </nav>
+        
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active p-3" id="nav-recepta" role="tabpanel" aria-labelledby="nav-recepta-tab">
+                <div class="row"  style="width: 100%">
+                    <p>To moja recepta </p>
+                </div>
+            </div>
+            <div class="tab-pane fade show  p-3" id="nav-leki" role="tabpanel" aria-labelledby="nav-leki-tab">
+                <div class="row"  style="width: 100%">
+                    <p>To moje leki </p>
+                </div>
+            </div>
+            <div class="tab-pane fade show  p-3" id="nav-badania" role="tabpanel" aria-labelledby="nav-badania-tab">
+                <div class="row"  style="width: 100%">
+                    <p>To moje badania </p>
+                </div>
+            </div>
+        </div>
+
 {% endif %}
 {% endfor %}
 {% if not user.is_authenticated %}
