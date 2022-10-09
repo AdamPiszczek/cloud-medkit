@@ -66,3 +66,6 @@ class NoteDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 def about(request):
     return render(request, 'notes/about.html', {'title': 'About'})
 
+
+def portal(request):
+    return render(request, 'notes/portal.html', {'title': 'Portal'})
