@@ -14,6 +14,10 @@ class Note(models.Model):
     recepty = encrypt(models.TextField(max_length=5000))
     lekarstwa = encrypt(models.TextField(max_length=5000))
     badania = encrypt(models.TextField(max_length=5000))
+    wizyta = encrypt(models.TextField(max_length=5000))
+    skierowanie = encrypt(models.TextField(max_length=5000))
+    zalecenia = encrypt(models.TextField(max_length=5000))
+
     
 
     def __str__(self):

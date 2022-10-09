@@ -1,19 +1,22 @@
 {% extends "notes/base.html" %}
 {% block content %}
-{% for note in notes %}
 <article class="media content-section">
     <div class="media-body" style="margin-top: 70px;">
         <h1>Portal Lekarza</h1>
         <p>Prosze wybrać pacjenta z listy</p>
+        <a href="{% url 'admin:index' %}">
+            <button class="btn btn-primary " type="button">Zarządzanie pacjentami</button>
+        </a>
+        {% for note in notes %}
         <div class="article-metadata">
             <small class="text-muted">{{ note.date_posted|date:"F d, Y" }}</small>
         </div>
         <h2><a class="article-title" href="{% url 'note-detail' note.id %}">{{ note.name }}</a></h2>
-        <p class="article-content">{{ note.recepta }}</p>
+        <p class="article-content">{{ note.wizyta }}</p>
+        {% endfor %}
     </div>
 </article>
 
-{% endfor %}
 {% if not user.is_authenticated %}
 <h2>You're not logged in.</h2>
 <p><a href="{% url 'login' %}">Log in</a> to see your notes.</p>

@@ -4,15 +4,58 @@
     <div class="media-body">
       <div class="article-metadata">
         <small class="text-muted">{{ object.date_posted|date:"F d, Y" }}</small>
-          <div>
-            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'note-update' object.id %}">Zaktualizuj</a>
-            <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'note-delete' object.id %}">Usuń</a>
-          </div>
       </div>
       <h2 class="article-title">{{ object.name }}</h2>
-      <p class="article-content">Zrealizowane recepty: {{ object.recepty }}</p>
-      <p class="article-content">Przyjmowane lekarstwa: {{ object.lekarstwa }}</p>
-      <p class="article-content">Ostatnie badania: {{ object.badania }}</p>
+      <nav style="width: 100%">
+        <div class="nav nav-tabs" id="nav-tab" role="tablist" style="width: 100%">
+            <button class="nav-link active" id="nav-recepta-tab" data-bs-toggle="tab"
+            data-bs-target="#nav-recepta" type="button" role="tab" aria-controls="nav-recepta-tab" aria-selected='true'> Zrealizowane recepty </button>
+            <button class="nav-link " id="nav-leki-tab" data-bs-toggle="tab"
+            data-bs-target="#nav-leki" type="button" role="tab" aria-controls="nav-leki" aria-selected='false'> Przyjmowane lekarstwa </button>
+            <button class="nav-link " id="nav-badania-tab" data-bs-toggle="tab"
+            data-bs-target="#nav-badania" type="button" role="tab" aria-controls="nav-badania" aria-selected='false'> Historia badan </button>
+            <button class="nav-link " id="nav-wizyta-tab" data-bs-toggle="tab"
+            data-bs-target="#nav-wizyta" type="button" role="tab" aria-controls="nav-wizyta" aria-selected='false'> Termin następnej wizyty </button>
+            
+            <button class="nav-link " id="nav-skierowanie-tab" data-bs-toggle="tab"
+            data-bs-target="#nav-skierowanie" type="button" role="tab" aria-controls="nav-skierowanie" aria-selected='false'>Zlecone badania i skierowania</button>
+
+            <button class="nav-link " id="nav-zalecenia-tab" data-bs-toggle="tab"
+            data-bs-target="#nav-zalecenia" type="button" role="tab" aria-controls="nav-zalecenia" aria-selected='false'> Zalecenia </button>
+        </div>
+      </nav>
+      <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active p-3" id="nav-recepta" role="tabpanel" aria-labelledby="nav-recepta-tab">
+            <div class="row"  style="width: 100%">
+                <p>{{note.recepty}} </p>
+            </div>
+        </div>
+        <div class="tab-pane fade show  p-3" id="nav-leki" role="tabpanel" aria-labelledby="nav-leki-tab">
+            <div class="row"  style="width: 100%">
+                <p>{{note.lekarstwa}} </p>
+            </div>
+        </div>
+        <div class="tab-pane fade show  p-3" id="nav-badania" role="tabpanel" aria-labelledby="nav-badania-tab">
+            <div class="row"  style="width: 100%">
+                <p>{{note.badania}} </p>
+            </div>
+        </div>
+        <div class="tab-pane fade show  p-3" id="nav-badania" role="tabpanel" aria-labelledby="nav-wizyta-tab">
+          <div class="row"  style="width: 100%">
+              <p>{{note.wizyta}} </p>
+          </div>
+      </div>
+      <div class="tab-pane fade show  p-3" id="nav-skierowanie" role="tabpanel" aria-labelledby="nav-skierowanie-tab">
+        <div class="row"  style="width: 100%">
+            <p>{{note.skierowanie}} </p>
+        </div>
+    </div>
+    <div class="tab-pane fade show  p-3" id="nav-zalecenia" role="tabpanel" aria-labelledby="nav-zalecenia-tab">
+      <div class="row"  style="width: 100%">
+          <p>{{note.zalecenia}} </p>
+      </div>
+  </div>
+    </div>
     </div>
   </article>
 {% endblock content %}

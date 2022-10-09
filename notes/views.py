@@ -10,13 +10,18 @@ from django.views.generic import (
 from .models import Note
 
 
-def home(request):
-    context = {
+def home(request): 
+    if request.user.is_staff:
+        context = {
             'notes': Note.objects.all()
         }
-    if request.user.is_staff:
         return render(request, 'notes/doctor_view.html', context)
     else:
+        for note in Note.objects.all():
+            if note.author == request.user:
+                context = {
+                    'notes': note
+                }
         return render(request, 'notes/home.html', context)
 
 
