@@ -69,3 +69,8 @@ def about(request):
 
 def portal(request):
     return render(request, 'notes/portal.html', {'title': 'Portal'})
+
+
+def form(request):
+    return render(request, 'notes/form.html', {'title': 'Portal'})
+
