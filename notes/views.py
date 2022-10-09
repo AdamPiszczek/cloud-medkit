@@ -43,7 +43,7 @@ class NoteCreateView(LoginRequiredMixin, CreateView):
 
 class NoteUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Note
-    fields = ['name', 'recepty', "lekarstwa", "badania"]
+    fields = ['name', "author",'recepty', "lekarstwa", "badania"]
 
     def form_valid(self, form):
         form.instance.author = self.request.user

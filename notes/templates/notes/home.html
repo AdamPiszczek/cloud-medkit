@@ -18,7 +18,7 @@
                 <button class="nav-link " id="nav-leki-tab" data-bs-toggle="tab"
                 data-bs-target="#nav-leki" type="button" role="tab" aria-controls="nav-leki" aria-selected='false'> Lekarstwa </button>
                 <button class="nav-link " id="nav-badania-tab" data-bs-toggle="tab"
-                data-bs-target="#nav-badania" type="button" role="tab" aria-controls="nav-badania" aria-selected='false'> Następne badania </button>
+                data-bs-target="#nav-badania" type="button" role="tab" aria-controls="nav-badania" aria-selected='false'> Historia badan </button>
             </div>
         </nav>
         
@@ -30,7 +30,7 @@
             </div>
             <div class="tab-pane fade show  p-3" id="nav-leki" role="tabpanel" aria-labelledby="nav-leki-tab">
                 <div class="row"  style="width: 100%">
-                    <p>To moje leki: {{note.leki}} </p>
+                    <p>To moje leki: {{note.lekarstwa}} </p>
                 </div>
             </div>
             <div class="tab-pane fade show  p-3" id="nav-badania" role="tabpanel" aria-labelledby="nav-badania-tab">
@@ -39,7 +39,8 @@
                 </div>
             </div>
         </div>
-
+{% else %}
+<h2>Aktualnie nie jesteś przypisany do żadnego lekarza </h2>
 {% endif %}
 {% endfor %}
 {% if not user.is_authenticated %}
