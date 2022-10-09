@@ -5,6 +5,8 @@ from django.urls import reverse
 from django_cryptography.fields import encrypt
 
 # Create your models here.
+
+
 class Note(models.Model):
     date_posted = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
