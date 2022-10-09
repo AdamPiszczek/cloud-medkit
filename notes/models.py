@@ -10,11 +10,14 @@ from django_cryptography.fields import encrypt
 class Note(models.Model):
     date_posted = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    title = encrypt(models.CharField(max_length=100))
-    content = encrypt(models.TextField(max_length=5000))
+    name = encrypt(models.CharField(max_length=100))
+    recepty = encrypt(models.TextField(max_length=5000))
+    lekarstwa = encrypt(models.TextField(max_length=5000))
+    badania = encrypt(models.TextField(max_length=5000))
+    
 
     def __str__(self):
-        return self.title
+        return self.name
 
     def get_absolute_url(self):
         return reverse('note-detail', kwargs={'pk': self.pk})

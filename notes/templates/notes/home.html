@@ -2,8 +2,6 @@
 {% block content %}
 {% for note in notes %}
 {% if note.author == user %}
-
-<h1>TEST </h1>
 <div class="card" style="width: 100%; margin-bottom: 70px; margin-top: 70px; background-color: rgba(255,255,255, 0.5); ">
     <div class="row" >
     <div class="col-lg-7" style="text-align: end; margin-top: 30px;" ><h1>Portal Pacjenta</h1></div>
@@ -27,17 +25,17 @@
         <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active p-3" id="nav-recepta" role="tabpanel" aria-labelledby="nav-recepta-tab">
                 <div class="row"  style="width: 100%">
-                    <p>To moja recepta </p>
+                    <p>To moja recepta: {{note.recepty}} </p>
                 </div>
             </div>
             <div class="tab-pane fade show  p-3" id="nav-leki" role="tabpanel" aria-labelledby="nav-leki-tab">
                 <div class="row"  style="width: 100%">
-                    <p>To moje leki </p>
+                    <p>To moje leki: {{note.leki}} </p>
                 </div>
             </div>
             <div class="tab-pane fade show  p-3" id="nav-badania" role="tabpanel" aria-labelledby="nav-badania-tab">
                 <div class="row"  style="width: 100%">
-                    <p>To moje badania </p>
+                    <p>To moje badania: {{note.badania}} </p>
                 </div>
             </div>
         </div>
