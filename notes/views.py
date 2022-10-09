@@ -12,9 +12,12 @@ from .models import Note
 
 def home(request):
     context = {
-        'notes': Note.objects.all()
-    }
-    return render(request, 'notes/home.html', context)
+            'notes': Note.objects.all()
+        }
+    if request.user.is_staff:
+        return render(request, 'notes/doctor_view.html', context)
+    else:
+        return render(request, 'notes/home.html', context)
 
 
 class NoteListView(ListView):
@@ -22,6 +25,7 @@ class NoteListView(ListView):
     template_name = 'notes/home.html'  # <app>/<model>_<viewtype>.html
     context_object_name = 'notes'
     ordering = ['-date_posted']
+    
 
 
 class NoteDetailView(DetailView):
@@ -30,7 +34,7 @@ class NoteDetailView(DetailView):
 
 class NoteCreateView(LoginRequiredMixin, CreateView):
     model = Note
-    fields = ['title', 'content']
+    fields = ['name', 'recepta']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -39,7 +43,7 @@ class NoteCreateView(LoginRequiredMixin, CreateView):
 
 class NoteUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Note
-    fields = ['title', 'content']
+    fields = ['name', 'recepty', "lekarstwa", "badania"]
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -64,13 +68,13 @@ class NoteDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 
 def about(request):
-    return render(request, 'notes/about.html', {'title': 'About'})
+    return render(request, 'notes/about.html', {'name': 'About'})
 
 
 def portal(request):
-    return render(request, 'notes/portal.html', {'title': 'Portal'})
+    return render(request, 'notes/portal.html', {'name': 'Portal'})
 
 
 def form(request):
-    return render(request, 'notes/form.html', {'title': 'Portal'})
+    return render(request, 'notes/form.html', {'name': 'Portal'})
 

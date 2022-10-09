@@ -1,6 +1,6 @@
 {% extends "notes/base.html" %}
 {% block content %}
-  <article class="media content-section">
+  <article class="media content-section" style="margin-top: 70px;">
     <div class="media-body">
       <div class="article-metadata">
         <small class="text-muted">{{ object.date_posted|date:"F d, Y" }}</small>
@@ -11,8 +11,10 @@
           </div>
         {% endif %}
       </div>
-      <h2 class="article-title">{{ object.title }}</h2>
-      <p class="article-content">{{ object.content }}</p>
+      <h2 class="article-title">{{ object.name }}</h2>
+      <p class="article-content">Zrealizowane recepty: {{ object.recepty }}</p>
+      <p class="article-content">Przyjmowane lekarstwa: {{ object.lekarstwa }}</p>
+      <p class="article-content">Ostatnie badania: {{ object.badania }}</p>
     </div>
   </article>
 {% endblock content %}

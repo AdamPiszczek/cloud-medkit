@@ -4,12 +4,13 @@ from .views import (
     NoteDetailView,
     NoteCreateView,
     NoteUpdateView,
-    NoteDeleteView
+    NoteDeleteView,
+    home
 )
 from . import views
 
 urlpatterns = [
-    path('', NoteListView.as_view(), name='notes-home'),
+    path('',views.home, name='notes-home'),
     path('note/<int:pk>/', NoteDetailView.as_view(), name='note-detail'),
     path('note/new/', NoteCreateView.as_view(), name='note-create'),
     path('note/<int:pk>/update/', NoteUpdateView.as_view(), name='note-update'),
