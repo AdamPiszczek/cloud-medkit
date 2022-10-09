@@ -17,13 +17,15 @@ def home(request):
         }
         return render(request, 'notes/doctor_view.html', context)
     else:
-        for note in Note.objects.all():
-            if note.author == request.user:
-                context = {
-                    'notes': note
+        context = {
+                    'notes': Note.objects.all()
                 }
-            else:
-                context = None
+        # for note in Note.objects.all():
+        #     if note.author == request.user:
+        #         print(f"To jest note : {note}")
+        #         context = {
+        #             'notes': note
+        #         }
         return render(request, 'notes/home.html', context)
 
 
