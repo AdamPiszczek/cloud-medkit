@@ -10,7 +10,7 @@ from django.views.generic import (
 from .models import Note
 
 
-def home(request): 
+def home(request):
     if request.user.is_staff:
         context = {
             'notes': Note.objects.all()
@@ -22,6 +22,8 @@ def home(request):
                 context = {
                     'notes': note
                 }
+            else:
+                context = None
         return render(request, 'notes/home.html', context)
 
 
@@ -30,7 +32,7 @@ class NoteListView(ListView):
     template_name = 'notes/home.html'  # <app>/<model>_<viewtype>.html
     context_object_name = 'notes'
     ordering = ['-date_posted']
-    
+
 
 
 class NoteDetailView(DetailView):

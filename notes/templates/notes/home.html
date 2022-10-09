@@ -4,7 +4,7 @@
 <!-- <h1>Wtyczka</h1> -->
 <div class="card" style="width: 100%; margin-bottom: 70px; margin-top: 70px; background-color: rgba(255,255,255, 0.5); ">
     <div class="row" >
-    <div class="col-lg-7" style="text-align: end; margin-top: 30px;" ><h1>Portal Pacjenta</h1></div>
+    <div class="col-lg-7" style="text-align: end; margin-top: 30px;" ><h1>Portal Pacjenta</h1><br></div>
         <div class="col-lg-5">
 
         </div>
@@ -20,10 +20,8 @@
             data-bs-target="#nav-badania" type="button" role="tab" aria-controls="nav-badania" aria-selected='false'> Historia badan </button>
             <button class="nav-link " id="nav-wizyta-tab" data-bs-toggle="tab"
             data-bs-target="#nav-wizyta" type="button" role="tab" aria-controls="nav-wizyta" aria-selected='false'> Termin następnej wizyty </button>
-            
             <button class="nav-link " id="nav-skierowanie-tab" data-bs-toggle="tab"
             data-bs-target="#nav-skierowanie" type="button" role="tab" aria-controls="nav-skierowanie" aria-selected='false'>Zlecone badania i skierowania</button>
-
             <button class="nav-link " id="nav-zalecenia-tab" data-bs-toggle="tab"
             data-bs-target="#nav-zalecenia" type="button" role="tab" aria-controls="nav-zalecenia" aria-selected='false'> Zalecenia </button>
         </div>
@@ -44,7 +42,7 @@
                 <p>{{note.badania}} </p>
             </div>
         </div>
-        <div class="tab-pane fade show  p-3" id="nav-badania" role="tabpanel" aria-labelledby="nav-wizyta-tab">
+        <div class="tab-pane fade show  p-3" id="nav-wizyta" role="tabpanel" aria-labelledby="nav-wizyta-tab">
             <div class="row"  style="width: 100%">
                 <p>{{note.wizyta}} </p>
             </div>
