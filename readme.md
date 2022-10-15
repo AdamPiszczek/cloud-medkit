@@ -11,7 +11,7 @@ E-Health Hackathon - a two-day programming marathon organized as part of the War
 Our solution was a web application that allows the patient's medications to be stored backwards, allowing doctors to view the medicines taken by a given patient. It would be vital in treating heart diseases, where patients take many different medications. An additional advantage of the application is its security, which properly encrypts the patient's data and remedies, storing information about them on an external server (in the cloud). For more information, please see our presentation, which is available [under the given link](https://view.genial.ly/634272534b861e0011e57517/presentation-medkit)
 
 ## Setup :wrench:
-- Linux / macOS version
+- Linux / macOS
 ```sh
 > pip install ./requirements.txt
 > python3 manage.py makemigrations
@@ -19,7 +19,7 @@ Our solution was a web application that allows the patient's medications to be s
 > python3 manage.py collectstatic
 > python3 manage.py runserver
 ```
-- Windows version
+- Windows
 ```sh
 > pip install -r ./requirements.txt
 > python manage.py makemigrations
@@ -30,11 +30,11 @@ Our solution was a web application that allows the patient's medications to be s
 
 ## How to Run :running:
 <ins>Before the first run, ensure that you have on and active PostgreSQL database.</ins>
-- Linux / macOS version
+- Linux / macOS
 ```sh
 > python3 manage.py runserver
 ```
-- Windows  version
+- Windows
 ```sh
 > python manage.py runserver
 ```
